@@ -1,84 +1,90 @@
-#encabezado{
+#encabezado {
     position: absolute;
-    top: 0%;
-    left: 0%;
+    top: 0;
+    left: 0;
     height: 8%;
     width: 100%;
-    background-color: #496D8D;
+    background-color: blueviolet;
     color: white;
     padding-left: 15px;
 }
-#menu{
+
+#menu {
     position: absolute;
     top: 8%;
     left: 0;
     height: 4%;
     width: 100%;
-    background-color: #33ffff;
-    color: white;
+    background-color: lightsalmon;
+    color: black;
     padding-left: 15px;
 }
 
 #menu a:visited {
-    color: navy
+    color: navy;
 }
+
 #menu a:hover {
-    background-color: green;
+    background-color: fuchsia;
     color: white;
 }
 
-#barraLateral{
+#barraLateral {
     position: absolute;
     top: 12%;
-    left: 0%;
+    left: 0;
     height: 81%;
     width: 20%;
-    background-color: #ffcc33;
+    background-color: gold;
     color: black;
     padding-left: 15px;
 }
-#contenido{
+
+#contenido {
     position: absolute;
     top: 12%;
     left: 20%;
     height: 81%;
     width: 80%;
-    background-color: #33ff33;
+    background-color: plum;
     color: black;
     padding-left: 15px;
     overflow: auto;
 }
-#piePagina{
+
+#piePagina {
     position: absolute;
     bottom: 0;
     left: 0;
     height: 7%;
     width: 100%;
-    background-color: #0033ff;
+    background-color: aquamarine;
     color: black;
     padding-left: 15px;
     text-align: center;
 }
 
-#piePagina address{
+#piePagina address {
     display: inline;
 }
 
-#encabezadoTabla{
+#encabezadotabla {
     font-size: 20px;
-    background-color:#ffcc33;
-    color: activeborder;
+    background-color: darkblue;
+    color: gold;
 }
 
-#tablaResumen tr:nth-child(odd){
-    background-color: coral;
-    color: white
-}
-#tablaResumen tr:nth-child(even){
+#tablaResumen tr:nth-child(odd) {
     background-color: white;
-    color: darkgreen;
+    color: darkblue;
 }
-#tablaResumen{
+
+#tablaResumen tr:nth-child(even) {
+    background-color: darkblue;
+    color: white;
+}
+
+#tablaResumen tr{
     font-size: 25px;
     font-weight: bolder;
 }
