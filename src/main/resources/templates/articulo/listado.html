@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/platilla :: header" />
+        <div class="contenido">
+            <h2>Listado de articulos</h2><br/><br/>
+            <a th:href="@{/articulo/nuevo}">Nuevo Articulo</a><br/><br/>
+            <div th:if="${articulos != null and !articulos.empty}">
+                <table border = "1">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Existencias</th>
+                            <th>Activa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${articulos}">
+                            <td th:text="${item.descripcion}"></td>
+                            <td th:text="${#numbers.formatDecimal(item.precio, 3, 2)}" style="text-align: rigth"></td>
+                            <td th:text="${item.existencias}" style="text-align: center"></td>
+                            <td><input type="checkbox" name="activa" th:checked="${item.activo}" disabled="true"/></td>
+                            <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo}">Eliminar</a></td>
+                            <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo}">Modificar</a></td>
+                        </tr>
+                    </tbody>                  
+                </table>
+                <div th:if="${articulos == null or articulos.empty}"><br/><br/>
+                    No tenemos mas articulos disponibles...
+                </div>    
+            </div>
+            <footer th:replace="layout/platilla :: footer" />
+    </body>
+</html>
