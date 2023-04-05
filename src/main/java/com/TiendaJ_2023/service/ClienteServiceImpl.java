@@ -1,4 +1,5 @@
 package com.TiendaJ_2023.service;
+
 import com.TiendaJ_2023.dao.ClienteDao;
 import com.TiendaJ_2023.dao.CreditoDao;
 import com.TiendaJ_2023.domain.Cliente;
@@ -13,7 +14,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Autowired
     ClienteDao ClienteDao;
-    
+
     @Autowired
     CreditoDao creditoDao;
 
@@ -34,7 +35,7 @@ public class ClienteServiceImpl implements ClienteService {
     public void save(Cliente cliente) {
         Credito credito = cliente.getCredito();
         credito = creditoDao.save(credito);
-        
+
         cliente.setCredito(credito);
         ClienteDao.save(cliente);
     }
@@ -43,6 +44,23 @@ public class ClienteServiceImpl implements ClienteService {
     @Transactional
     public void delete(Cliente cliente) {
         ClienteDao.deleteById(cliente.getIdCliente());
+    }
+
+ 
+
+    @Override
+    public List<Cliente> getClientePorNombre(String nombre) {
+        return ClienteDao.findByNombre(nombre);
+    }
+
+    @Override
+    public List<Cliente> getClientePorTelefono(String telefono) {
+         return ClienteDao.findByNombre(telefono);
+    }
+
+    @Override
+    public List<Cliente> getClientePorNombreApellidosTelefono(String nombre, String apellidos, String telefono) {
+       return ClienteDao.findByNombreOrApellidosOrTelefono(nombre, apellidos, telefono); 
     }
 
 }

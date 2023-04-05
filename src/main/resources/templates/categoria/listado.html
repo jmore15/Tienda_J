@@ -6,7 +6,7 @@
         <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace="layout/platilla :: header" />
+        <header th:replace="layout/plantilla :: header" />
         <div class="contenido">
             <h2>Categorías</h2><br/><br/>
             <a th:href="@{/categoria/nuevo}">Nueva categoria</a><br/><br/>
@@ -31,6 +31,6 @@
             <div th:if="${clientes == null or clientes.empty}"><br/><br/>
                 Estas son todas nuestras categorías...
             </div> 
-            <footer th:replace="layout/platilla :: footer" />
+            <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>

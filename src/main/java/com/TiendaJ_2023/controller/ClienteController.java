@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ClienteController {
@@ -30,11 +29,6 @@ public class ClienteController {
         return "/cliente/modificar";
     }
     
-    @GetMapping("/cliente/buscar")
-    public String buscarcliente(Cliente cliente){
-        return "redirect:/cliente/buscar";
-    }
-
     @PostMapping("/cliente/guardar")
     public String guardarCliente(Cliente cliente) {
         clienteService.save(cliente);
@@ -52,6 +46,17 @@ public class ClienteController {
     public String eliminarCliente(Cliente cliente) {
         clienteService.delete(cliente);
         return "redirect:/cliente/listado";
+    }
+    @GetMapping("/cliente/buscar")
+    public String buscar(Cliente cliente) {
+        return "/cliente/buscarCliente";
+    }
+    @PostMapping("/cliente/busqueda")
+    public String busqueda(Cliente cliente, Model model) {
+        var clientes = clienteService.getClientePorNombre(cliente.getNombre());
+        //var clientes = clienteService.getClientePorNombreApellidosTelefono(cliente.getNombre(),cliente.getNombre(),cliente.getNombre());
+        model.addAttribute("resultados", clientes);
+        return "/cliente/buscarCliente";
     }
 
 }
